@@ -1137,29 +1137,13 @@ namespace SapiensTranslator
 
                 MatchCollection matches1 = Regex.Matches(text, pattern1);
                 fullProgress += matches1.Count;
-                foreach (Match match in matches1)
-                {
-                    int progressValue = calcProgress(fullProgress, runProgress);
-                    ((BackgroundWorker)_SenderWorker).ReportProgress(progressValue);
-                    runProgress++;
-                    string OriConstant = match.Groups[1].Value;
-                    string group2Value = $"\"{match.Groups[2].Value}\"";
-                    int index = dataExportLua.FindIndex(item => item.Constant == OriConstant);
-                    if (index != -1)
-                    {
-                        string? TextTransl = dataExportLua[index].Translation;
-                        if (!string.IsNullOrEmpty(TextTransl))
-                        {
-                            text = text.Replace(group2Value, $"\"{TextTransl}\"");
-                        }
-                    }
-                }
-
+                
                 MatchCollection matches2 = Regex.Matches(text, pattern2);
                 MatchCollection matches3 = Regex.Matches(text, pattern3);
                 MatchCollection matches4 = Regex.Matches(text, pattern4);
                 fullProgress += matches2.Count + matches3.Count + matches4.Count;
 
+                ProcessMatches(matches1, dataExportLua, ref runProgress, fullProgress, ref text);
                 ProcessMatches(matches2, dataExportLua, ref runProgress, fullProgress, ref text);
                 ProcessMatches(matches3, dataExportLua, ref runProgress, fullProgress, ref text, true);
                 ProcessMatches(matches4, dataExportLua, ref runProgress, fullProgress, ref text, true);
@@ -1183,7 +1167,7 @@ namespace SapiensTranslator
                     int progressValue = calcProgress(fullProgress, runProgress);
                     ((BackgroundWorker)_SenderWorker).ReportProgress(progressValue);
                     runProgress++;
-
+                    string MatchFull = match.ToString();
                     string OriConstant = match.Groups[1].Value;
                     string group2Value = match.Groups[2].Value;
                     if (sens)
@@ -1199,7 +1183,8 @@ namespace SapiensTranslator
 
                         if (!string.IsNullOrEmpty(TextTransl))
                         {
-                            text = text.Replace(group2Value, TextTransl);
+                            MatchFull = MatchFull.Replace(group2Value, TextTransl);
+                            text = text.Replace(match.ToString(), MatchFull);
                         }
                     }
                 }
