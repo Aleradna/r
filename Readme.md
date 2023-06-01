@@ -1,8 +1,7 @@
 # Transl-Sapiens
 
 
-[Download Here](https://github.com/LLFT/SapienTalk/releases/download/Sapiens/SapienTalk.msi)
-
+[Download Here](https://github.com/LLFT/SapienTalk/releases/download/V1.0.1/SapienTalk.msi)
 
 ## Before you start
 

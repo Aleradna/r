@@ -224,15 +224,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SapienTalk"
-        "ProductCode" = "8:{8325DB99-22A9-47B4-8BEF-7C2964BD84D9}"
-        "PackageCode" = "8:{880886EA-20D6-42BA-9B2F-86C2265C24AD}"
+        "ProductCode" = "8:{F17D19FD-42F0-4298-97AD-3092A23EE966}"
+        "PackageCode" = "8:{5CE7DB5B-CAB7-40E6-97F6-5902A37B6E2A}"
         "UpgradeCode" = "8:{9237370C-3C79-4668-AD16-ED85C7F83F09}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Bikarfioul"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -774,7 +774,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FEA3EE7CB5BD40E4A192A0BCEF84FEE9"
             {
-            "SourcePath" = "8:..\\SapiensTranslator\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\SapienTalk\\obj\\Release\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_23963DA8CC5342B7A532577F52837C8F"
