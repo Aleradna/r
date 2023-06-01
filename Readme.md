@@ -1,6 +1,9 @@
 # Transl-Sapiens
 
 
+[Download Here](https://github.com/LLFT/SapienTalk/releases/download/Sapiens/SapienTalk.msi)
+
+
 ## Before you start
 
 I am delighted to present to you the very first version of our translation application for the game Sapiens. This application has been specially designed to allow you to follow your own translation work of the localization.lua file of the game, in order to create your own personalized translation mod.
