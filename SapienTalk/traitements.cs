@@ -1143,7 +1143,7 @@ namespace SapiensTranslator
                 MatchCollection matches4 = Regex.Matches(text, pattern4);
                 fullProgress += matches2.Count + matches3.Count + matches4.Count;
 
-                ProcessMatches(matches1, dataExportLua, ref runProgress, fullProgress, ref text);
+                ProcessMatches(matches1, dataExportLua, ref runProgress, fullProgress, ref text,false,true);
                 ProcessMatches(matches2, dataExportLua, ref runProgress, fullProgress, ref text);
                 ProcessMatches(matches3, dataExportLua, ref runProgress, fullProgress, ref text, true);
                 ProcessMatches(matches4, dataExportLua, ref runProgress, fullProgress, ref text, true);
@@ -1157,7 +1157,7 @@ namespace SapiensTranslator
         }
 
         //Traitement des données des functions avant l'export
-        private void ProcessMatches(MatchCollection matches, List<DataExportLua> dataExportLua, ref int runProgress, int fullProgress, ref string text, bool sens = false)
+        private void ProcessMatches(MatchCollection matches, List<DataExportLua> dataExportLua, ref int runProgress, int fullProgress, ref string text, bool sens = false , bool quote = false)
         {
             //Traitement des données des functions avant l'export
             if (_SenderWorker != null)
@@ -1183,7 +1183,16 @@ namespace SapiensTranslator
 
                         if (!string.IsNullOrEmpty(TextTransl))
                         {
-                            MatchFull = MatchFull.Replace(group2Value, TextTransl);
+                            
+                            
+                            if (quote) {
+                                group2Value = $"\"{match.Groups[2].Value}\"";
+                                MatchFull = MatchFull.Replace(group2Value, $"\"{TextTransl}\"");
+                            }
+                            else
+                            {
+                                MatchFull = MatchFull.Replace(group2Value, TextTransl);
+                            }
                             text = text.Replace(match.ToString(), MatchFull);
                         }
                     }
